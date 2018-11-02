@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="content-section">
+
+            {% if current_user.is_authenticated %}
+                {% for post in posts %}
+                <article class="media content-section">
+                    <div class="media-body">
+                        <div class="article-metadata">
+                            <a class="mr-3">
+                                <span style="float: left" href="#"><b>{{post.title}}</b></span>
+                            </a>
+                        </div>
+                        <p class="article-content"><small>{{ post.text }}</small></p>
+
+                        <footer>
+                            <span style="float: left"><small>
+                                    <p>
+                                        Posted on
+                                        {{ post.time_updated.strftime('%A %B %d, %Y') }}
+                                        by <b>{{ post.author.name }}</b>.
+                                    </p>
+                                <img style='height: 48px; width: 48px' align='left' src="{{url_for('static',filename='profile_pics/'+post.author.profile_image)}}">
+                                </small></span>
+                            {% if post.user_id == current_user.id %}
+                            <span style="float: right">
+                                <a href="{{ url_for('post.update_post', post_id=post.id) }}"><button type="button" class="btn btn-primary btn-sm">Update</button></a>
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                            </span>
+                            {% endif %}
+                        </footer>
+                    </div>
+                </article>
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Delete {{ post.title }}?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <form action="{{ url_for('post.delete_post', post_id=post.id) }}" method="POST">
+                                    <input class="btn btn-danger" type="submit" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+           <div class="jumbotron">
+              <h1 class="display-4">Connect your world!</h1>
+              <p class="lead">Sign up now to stay in the loop with all of your friends.</p>
+              <hr class="my-4">
+              <p>This is a demo social networking website built for the Udacity Full-Stack Developer Nanodegree.</p>
+              <a class="btn btn-primary btn-lg" href="{{ url_for('users.register') }}" role="button">Click Here to Register!</a>
+            </div>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock content %}

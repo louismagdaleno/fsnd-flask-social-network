@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ <div class="container">
+    <h1>Sign In</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+
+      <div class="form-group">
+      {{form.email.label(class='form-group', style='width: 400px;')}}
+      {{form.email(class='form-control', style='width: 400px;')}}
+      </div>
+
+      <div class="form-group">
+      {{form.password.label(class='form-group', style='width: 400px;')}}
+      {{form.password(class='form-control', style='width: 400px;')}}
+      </div>
+
+      <div class="form-group">
+       {{form.submit(class='btn btn-primary')}}
+      </div>
+
+
+    </form>
+  </div>
+{% endblock %}
