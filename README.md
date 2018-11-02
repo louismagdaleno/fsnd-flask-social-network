@@ -19,13 +19,21 @@
 
 ## Screens
 
+# Landing Page
 ![landing_page](https://user-images.githubusercontent.com/33568112/47936631-83f57980-de9b-11e8-9c63-89fbaeaf5cf1.PNG)
+# OAuth
 ![oauth](https://user-images.githubusercontent.com/33568112/47936639-8952c400-de9b-11e8-852e-6120ce6aca1f.PNG)
+# Sign In
 ![sign_in](https://user-images.githubusercontent.com/33568112/47936641-8952c400-de9b-11e8-8741-1979a55981b5.PNG)
+# Sign Up
 ![sign_up](https://user-images.githubusercontent.com/33568112/47936642-8952c400-de9b-11e8-82b0-b7609da856c2.PNG)
+# Update Profile
 ![update_profile](https://user-images.githubusercontent.com/33568112/47936643-8952c400-de9b-11e8-8429-643b27601928.PNG)
+# API
 ![api](https://user-images.githubusercontent.com/33568112/47936644-8952c400-de9b-11e8-8115-a28277a62571.PNG)
+# Create Post
 ![create_post](https://user-images.githubusercontent.com/33568112/47936645-89eb5a80-de9b-11e8-8c90-aef669d9bb95.PNG)
+# Logged In - View Posts
 ![logged_in](https://user-images.githubusercontent.com/33568112/47936647-89eb5a80-de9b-11e8-9a06-14dbc84dbdf9.PNG)
 
 ## Key Ideas
