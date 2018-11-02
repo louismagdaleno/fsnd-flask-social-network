@@ -38,11 +38,11 @@
 
 ## Key Ideas
 
-* `Clean, Readable Code and Design.` 
-* `Simplicity over Complexity.`
-* `Automation.` 
+* `MVC Architecture.` 
+* `Separation of concerns.`
+* `Leverage extensions for heavy lifting- IE. login, sessions, auth.` 
 * `UI/UX matter.` 
-* `Build to scale.` 
+* `Blueprints used to allow application to scale easily.` 
 
 ## Design and Architecture
 
@@ -51,51 +51,55 @@ This application is organized around a MVC pattern.
 ```bash
 .
 ├── config
-└── app
+└── socialnetwork
+    ├── utils
     ├── models      # Model
     ├── routes      # Controller
     ├── templates   # View
     ├── forms
     └── static
 ```
-Modules and features are isolated and decoupled for single responsibility and seperation of concerns. 
-
-Organized into Package modules to promote code readability, re-use and collaboration.
+Code organized into package modules to allow for reuse and separation of concerns.
 
 ```bash
 .
 ├── Dockerfile                # Dockerfile is optimized for pip-install Container caching.
 ├── config                      
-│   └── settings.py           # Considered YAML, environment classes inherit from Default class.
+│   └── settings.py           
 ├── docker-compose.yml
-├── app
-│   ├── egu-nyc-dev-001.db    # Required db objects are seeded with Faker.
+├── socialnetwork
+│   ├── lm-ca-dev-001.db    # db object
 │   ├── forms
-│   │   └── item.py           # Create/Update re-leverage/share unified form.
+│   │   └── post.py           # create posts
+|   |   └── user.py           # registration, login, update user
 │   ├── models
-│   │   ├── category.py       # Hybrid property/expression to dynamically calc child relationships.
-│   │   ├── item.py
+│   │   ├── post.py           
 │   │   └── user.py
 │   ├── routes
-│   │   ├── category.py
+│   │   ├── account.py
 │   │   ├── errorhandlers.py
-│   │   ├── item.py
-│   │   ├── main.py           # Leveraged marshmallow for serialization. Single endpoint with nested children.
+│   │   ├── post.py
+│   │   ├── main.py           
 │   │   └── userauth.py       # Flashes a signal/instance of blueprint and token via Flask-Dance.
 │   ├── services
 │   ├── static
 │   │   ├── img
 │   │   │   └── google.png
+|   |   ├── profile_pics
+│   │   │   └── default_profile.png      
 │   │   └── styles
 │   │       └── main.css
-│   └── templates             # Limited and avoided logic in templates. Responsive bootstrap with modal window.
+│   └── templates             #  Responsive bootstrap with modal window.
 │       ├── errors
-│       │   ├── 403.html      # Custom error handlers
+│       │   ├── 403.html      # Error handlers
 │       │   ├── 404.html
 │       │   └── 500.html
-│       ├── item.html
+│       ├── account.html
 │       ├── layout.html
-│       └── main.html
+│       ├── login.html
+│       ├── main.html
+│       ├── post.html
+│       └── register.html
 ├── manage.py
 └── requirements.txt
 ```
