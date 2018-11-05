@@ -64,7 +64,6 @@ This application is organized around a MVC pattern.
 .
 ├── config                      
 │   └── settings.py           
-├── docker-compose.yml
 ├── socialnetwork
 │   ├── socialnetwprk.db    # db object
 │   ├── forms
@@ -113,7 +112,7 @@ This application is organized around a MVC pattern.
 
 ### Requirements
 
-requirements.txt
+<a href="https://github.com/buildthatapp/fsnd-flask-social-network/blob/master/src/web/requirements.txt">requirements.txt</a>
 
 ### How to run the project
 
