@@ -8,7 +8,6 @@
 
 ## Technologies Used
 
-* `Docker` 
 * `Python`
 * `Flask` 
 * `SQLAlchemy`
