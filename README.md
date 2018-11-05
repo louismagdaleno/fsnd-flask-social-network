@@ -111,8 +111,8 @@ This application is organized around a MVC pattern.
 ## Installation
 
 ### Requirements
-Python 3.5+
-<a href="https://github.com/buildthatapp/fsnd-flask-social-network/blob/master/src/web/requirements.txt">requirements.txt</a>
+* Python 3.5+
+* <a href="https://github.com/buildthatapp/fsnd-flask-social-network/blob/master/src/web/requirements.txt">requirements.txt</a>
 
 ### How to run the project
 
