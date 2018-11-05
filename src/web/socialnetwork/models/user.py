@@ -1,10 +1,11 @@
+from datetime import datetime
+
+from flask_dance.consumer.backend.sqla import OAuthConsumerMixin
+from flask_login import UserMixin
 from socialnetwork import login_manager
-from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin, current_user
-from datetime import datetime
-from flask_dance.consumer.backend.sqla import OAuthConsumerMixin, SQLAlchemyBackend
-from datetime import datetime
+
+from . import db
 
 
 @login_manager.user_loader
@@ -17,7 +18,8 @@ class User(db.Model, UserMixin):
     __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
-    profile_image = db.Column(db.String(250), nullable=False, default='web/socialnetwork/static/profile_pics/default_profile.png')
+    profile_image = db.Column(db.String(250), nullable=False,
+                              default="{{ url_for('static', filename='profile_pics/default_profile.png') }}")
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(250), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)

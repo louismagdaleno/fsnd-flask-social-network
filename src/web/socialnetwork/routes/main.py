@@ -11,7 +11,10 @@ main = Blueprint('main', __name__)
 def index():
     """Returns all posts"""
     posts = Post.query.all()  # noqa:501
-    return render_template('main.html', title='Home', posts=posts, current_user=current_user)
+    return render_template('main.html',
+                           title='Home',
+                           posts=posts,
+                           current_user=current_user)
 
 
 @main.route('/api/v1/posts/json')

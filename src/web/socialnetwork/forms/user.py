@@ -1,9 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import  DataRequired, Email, EqualTo
+from wtforms.validators import DataRequired, Email
 from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed
-from flask_login import current_user
 from socialnetwork.models.user import User
 
 
@@ -32,7 +31,8 @@ class RegistrationForm(FlaskForm):
 class UpdateUserForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     username = StringField('Username', validators=[DataRequired()])
-    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
+    picture = FileField('Update Profile Picture',
+                        validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 
     def check_email(self, field):

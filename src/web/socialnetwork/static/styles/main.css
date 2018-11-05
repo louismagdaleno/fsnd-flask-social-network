@@ -1,15 +1,15 @@
 body {
   background: #fafafa;
-  color: #333333;
+  color: #fafafa;
   margin-top: 5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #4643FF;
 }
 
 .bg-steel {
-  background-color: #284860;
+  background-color: #4643FF;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -25,11 +25,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-section {
-  background: #ffffff;
+    background: #4643FF;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+#post {
+  background: #4643FF;
   padding: 10px 20px;
-  border: 1px solid #dddddd;
+  border: 1px solid #4643FF;
   border-radius: 3px;
   margin-bottom: 20px;
+  border-top: 2px solid #0076B2;
+  border-left: 2px solid #0076B2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .article-title {
@@ -77,12 +86,4 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
-}
-
-#hero {
-   background-image: url("https://s3.envato.com/files/246220991/preview.jpg");
-   height: 500px; /* You must set a specified height */
-   background-position: center; /* Center the image */
-   background-repeat: no-repeat; /* Do not repeat the image */
-   background-size: cover; /* Resize the background image to cover the entire container */
 }

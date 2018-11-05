@@ -6,7 +6,7 @@ from socialnetwork import db
 from socialnetwork.models.user import User
 from socialnetwork.models.post import Post
 from socialnetwork.forms.user import RegistrationForm, LoginForm, UpdateUserForm
-from socialnetwork.utils.picture_handler import  add_profile_pic
+from socialnetwork.utils.picture_handler import add_profile_pic
 
 
 users = Blueprint('users', __name__)
@@ -30,7 +30,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Thanks for registration')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('users.login'))
     return render_template('register.html', form=form)
 
 
@@ -74,13 +74,17 @@ def account():
         form.username.data = current_user.username
         form.email.data = current_user.email
 
-    profile_image = url_for('static',filename='profile_pics/'+current_user.profile_image)
-    return render_template('account.html',profile_image=profile_image,form=form)
+    profile_image = \
+        url_for('static',
+                filename='profile_pics/' + current_user.profile_image)
+    return render_template('account.html',
+                           profile_image=profile_image, form=form)
 
 
 @users.route('/<username>')
 def user_posts(username):
     page = request.args.get('/page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    posts = Post.query.filter_by(author=user).order_by(Post.date.desc()).pageinate(page=page, per_page=5)
+    posts = Post.query.filter_by(author=user).\
+        order_by(Post.date.desc()).pageinate(page=page, per_page=5)
     return render_template('user_posts.html', posts=posts, user=user)

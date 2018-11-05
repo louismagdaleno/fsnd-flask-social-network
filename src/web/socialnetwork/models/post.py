@@ -32,4 +32,6 @@ class Post(db.Model):
         }
 
     def __repr__(self):
-        return f"Post Id: {self.id} --- Date: {self.date} --- Title: {self.title}"
+        return f"Post Id: {self.id} " \
+               f"--- Date: {self.date} " \
+               f"--- Title: {self.title}"

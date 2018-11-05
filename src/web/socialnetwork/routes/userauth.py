@@ -5,8 +5,6 @@ from flask_login import current_user, login_user, logout_user
 from flask_dance.consumer import oauth_authorized
 from sqlalchemy.orm.exc import NoResultFound
 from oauthlib.oauth2.rfc6749.errors import InvalidClientIdError
-from urllib.request import urlretrieve
-import os
 from socialnetwork import app, db, user
 
 userauth = Blueprint('userauth', __name__)
@@ -58,9 +56,10 @@ def google_logged_in(blueprint, token):
             user = query.one()
         except NoResultFound:
             user = User(
-            name = account_info_json['name'],
-            username = account_info_json['name'],
-            email = account_info_json['email'])
+                name=account_info_json['email'],
+                username=account_info_json['email'],
+                email=account_info_json['email']
+                )
             db.session.add(user)
             db.session.commit()
         login_user(user, remember=True)

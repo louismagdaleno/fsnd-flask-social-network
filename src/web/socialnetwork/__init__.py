@@ -1,4 +1,5 @@
 import config  # noqa:E401
+from dotenv import load_dotenv
 from flask import Flask
 from flask_login import LoginManager
 import os
@@ -7,6 +8,9 @@ import os
 app = Flask(__name__)
 
 # Environment Configuration
+APP_ROOT = os.path.join(os.path.dirname(__file__), '..')
+dotenv_path = os.path.join(APP_ROOT, '.env')
+load_dotenv(dotenv_path)
 app.config.from_object('config.settings.' + os.environ['ENV'])
 
 # User Session Management
@@ -35,69 +39,3 @@ app.register_blueprint(post)
 app.register_blueprint(main)
 app.register_blueprint(errorhandlers)
 app.register_blueprint(users)
-
-"""
-# Fake Data
-# Populate Database Users
-homer = User()
-homer.name = 'Homer Simpson'
-homer.username = 'Homer Simpson'
-homer.email = 'homer@simpson.com'
-db.session.add(homer)
-db.session.commit()
-
-marge = User()
-marge.name = 'Marge Simpson'
-marge.username = 'Marge Simpson'
-marge.email = 'marge@simpson.com'
-db.session.add(marge)
-db.session.commit()
-
-lisa = User()
-lisa.name = 'Lisa Simpson'
-lisa.username = 'Lisa Simpson'
-lisa.email = 'lisa@simpson.com'
-db.session.add(lisa)
-db.session.commit()
-
-bart = User()
-bart.name = 'Bart Simpson'
-bart.username = 'Bart Simpson'
-bart.email = 'bart@simpson.com'
-db.session.add(bart)
-db.session.commit()
-
-# Populate Database posts
-post1 = Post()
-post1.title = 'Sports'
-post1.text = "Son, when you participate in sporting events, it's not whether you win or lose: it's how drunk you get."
-post1.user_id = 2
-post1.author = 'Homer Simpson'
-db.session.add(post1)
-db.session.commit()
-
-post2 = Post()
-post2.title = 'Fail'
-post2.text = "Me fail English? That's unpossible. Facts are meaningless. You could use facts to prove anything that's even remotely true! Homer no function beer well without. You don't win friends with salad. This is the greatest case of false advertising I've seen since I sued the movie The Never Ending Story."
-post2.user_id = 3
-post2.author = 'Lisa Simpson'
-db.session.add(post1)
-db.session.commit()
-
-post3 = Post()
-post3.title = 'Eww'
-post3.text = "Mrs. Krabappel and Principal Skinner were in the closet making babies and I saw one of the babies and then the baby looked at me"
-post3.user_id = 4
-post3.author = 'Bart Simpson'
-db.session.add(post1)
-db.session.commit()
-
-post4 = Post()
-post4.title = 'Sigh'
-post4.text = "We started out like Romeo and Juliet, but it ended up in tragedy. "
-post4.user_id = 2
-post4.author = 'Marge Simpson'
-db.session.add(post1)
-db.session.commit()
-"""
-
