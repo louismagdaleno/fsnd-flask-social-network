@@ -19,29 +19,29 @@
 ## Screens
 
 # Landing Page
-![landing_page](https://user-images.githubusercontent.com/33568112/47936631-83f57980-de9b-11e8-9c63-89fbaeaf5cf1.PNG)
+![landing_page](https://user-images.githubusercontent.com/33568112/48032280-dd63df80-e10b-11e8-8560-7313f89ae62a.PNG)
 # OAuth
 ![oauth](https://user-images.githubusercontent.com/33568112/47936639-8952c400-de9b-11e8-852e-6120ce6aca1f.PNG)
 # Sign In
-![sign_in](https://user-images.githubusercontent.com/33568112/47936641-8952c400-de9b-11e8-8741-1979a55981b5.PNG)
+![sign_in](https://user-images.githubusercontent.com/33568112/48032305-fcfb0800-e10b-11e8-9298-ebc6f74ed4e0.PNG)
 # Sign Up
-![sign_up](https://user-images.githubusercontent.com/33568112/47936642-8952c400-de9b-11e8-82b0-b7609da856c2.PNG)
+![sign_up](https://user-images.githubusercontent.com/33568112/48032368-3d5a8600-e10c-11e8-8a6c-6b7ce4dc9220.PNG)
 # Update Profile
-![update_profile](https://user-images.githubusercontent.com/33568112/47936643-8952c400-de9b-11e8-8429-643b27601928.PNG)
+![update_profile](https://user-images.githubusercontent.com/33568112/48032413-60853580-e10c-11e8-91c6-c80291babc02.PNG)
 # API
 ![api](https://user-images.githubusercontent.com/33568112/47936644-8952c400-de9b-11e8-8115-a28277a62571.PNG)
 # Create Post
-![create_post](https://user-images.githubusercontent.com/33568112/47936645-89eb5a80-de9b-11e8-8c90-aef669d9bb95.PNG)
+![create_post](https://user-images.githubusercontent.com/33568112/48032508-bd80eb80-e10c-11e8-98b8-24b7bd243020.PNG)
 # Logged In - View Posts
-![logged_in](https://user-images.githubusercontent.com/33568112/47936647-89eb5a80-de9b-11e8-9a06-14dbc84dbdf9.PNG)
+![logged_in](https://user-images.githubusercontent.com/33568112/48032542-dee1d780-e10c-11e8-9f72-98b42105fcf6.PNG)
 
 ## Key Ideas
 
-* `MVC Architecture.` 
+* `MVC Design Pattern.` 
 * `Separation of concerns.`
-* `Leverage extensions for heavy lifting- IE. login, sessions, auth.` 
-* `UI/UX matter.` 
-* `Blueprints used to allow application to scale easily.` 
+* `Scalable application design.` 
+* `OAuth.` 
+* `Flask, SQLAlchemy, and extensions.` 
 
 ## Design and Architecture
 
@@ -58,16 +58,15 @@ This application is organized around a MVC pattern.
     ├── forms
     └── static
 ```
-Code organized into package modules to allow for reuse and separation of concerns.
+
 
 ```bash
 .
-├── Dockerfile                # Dockerfile is optimized for pip-install Container caching.
 ├── config                      
 │   └── settings.py           
 ├── docker-compose.yml
 ├── socialnetwork
-│   ├── lm-ca-dev-001.db    # db object
+│   ├── socialnetwprk.db    # db object
 │   ├── forms
 │   │   └── post.py           # create posts
 |   |   └── user.py           # registration, login, update user
@@ -88,7 +87,7 @@ Code organized into package modules to allow for reuse and separation of concern
 │   │   │   └── default_profile.png      
 │   │   └── styles
 │   │       └── main.css
-│   └── templates             #  Responsive bootstrap with modal window.
+│   └── templates             #  Responsive bootstrap 
 │       ├── errors
 │       │   ├── 403.html      # Error handlers
 │       │   ├── 404.html
@@ -114,21 +113,16 @@ Code organized into package modules to allow for reuse and separation of concern
 
 ### Requirements
 
-Docker (https://www.docker.com/get-started)
+requirements.txt
 
-### Deploy
+### How to run the project
 
 ```bash
-# Clone this repository using git
+Download this project to your computer
 cd src/web
-docker-compose up --build
-# Navigate to http://localhost:8000/
-```
-
-### Destroy
-
-```bash
-docker-compose down -v
+export FLASK_APP=manage.py
+flask run
+# Navigate to http://127.0.0.1:5000/
 ```
 
 
