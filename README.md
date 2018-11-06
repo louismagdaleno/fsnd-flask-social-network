@@ -120,6 +120,8 @@ This application is organized around a MVC pattern.
 ```bash
 Download this project to your computer
 cd src/web
+virtualenv ENV
+source env/scripts/activate
 pip install -r requirements.txt
 export FLASK_APP=manage.py
 flask run
