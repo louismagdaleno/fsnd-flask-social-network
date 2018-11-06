@@ -99,6 +99,7 @@ This application is organized around a MVC pattern.
 │       └── register.html
 ├── manage.py
 └── requirements.txt
+└── .env
 ```
 
 
@@ -119,6 +120,7 @@ This application is organized around a MVC pattern.
 ```bash
 Download this project to your computer
 cd src/web
+pip install -r requirements.txt
 export FLASK_APP=manage.py
 flask run
 # Navigate to http://127.0.0.1:5000/
